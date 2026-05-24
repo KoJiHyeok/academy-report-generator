@@ -5,7 +5,12 @@ const { generateReports } = require("./reportGenerator");
 
 const rootDir = path.join(__dirname, "..");
 
-const csvPath = path.join(rootDir, "sample-data", "scores.csv");
+const inputArg = process.argv[2];
+
+const csvPath = inputArg
+  ? path.resolve(process.cwd(), inputArg)
+  : path.join(rootDir, "sample-data", "scores.csv");
+
 const templatePath = path.join(rootDir, "templates", "parent-message.md");
 const outputDir = path.join(rootDir, "output");
 const outputPath = path.join(outputDir, "messages.txt");
@@ -40,6 +45,7 @@ function main() {
   fs.writeFileSync(outputPath, reports, "utf-8");
 
   console.log(`Generated ${students.length} report(s).`);
+  console.log(`Input: ${csvPath}`);
   console.log(`Output: ${outputPath}`);
 }
 

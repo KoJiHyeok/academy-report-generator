@@ -1,5 +1,4 @@
-Set-Content -Path README.md -Encoding UTF8 -Value @'
-# Academy Report Generator
+﻿# Academy Report Generator
 
 성적 CSV 데이터를 학부모용 학습 리포트 메시지로 자동 변환하는 Node.js 기반 오픈소스 도구입니다.
 
@@ -28,6 +27,14 @@ npm run generate
 
 ```txt
 output/messages.txt
+```
+
+## Custom CSV Input
+
+기본 샘플 데이터가 아닌 원하는 CSV 파일을 지정해서 실행할 수도 있습니다.
+
+```bash
+npm run generate -- sample-data/scores.csv
 ```
 
 ## Project Structure
@@ -111,7 +118,7 @@ templates/parent-message.md
 {{level}}
 ```
 
-## 명령어
+## Commands
 
 ```bash
 npm run generate
@@ -139,7 +146,6 @@ npm run clean
 - 리포트 템플릿 여러 개 선택 기능
 - 학생별 개별 파일 출력 기능
 
-## 라이선스
+## License
 
 MIT
-'@
