@@ -1,4 +1,4 @@
-function calculatePercentile(rank, totalStudents) {
+﻿function calculatePercentile(rank, totalStudents) {
   const rankNumber = Number(rank);
   const totalNumber = Number(totalStudents);
 

@@ -1,4 +1,4 @@
-function parseCSVLine(line) {
+﻿function parseCSVLine(line) {
   const result = [];
   let current = "";
   let inQuotes = false;
@@ -21,10 +21,16 @@ function parseCSVLine(line) {
 }
 
 function parseCSV(content) {
-  const lines = content
+  const cleanContent = content.replace(/^\uFEFF/, "");
+
+  const lines = cleanContent
     .split(/\r?\n/)
     .map((line) => line.trim())
     .filter(Boolean);
+
+  if (lines.length === 0) {
+    return [];
+  }
 
   const headers = parseCSVLine(lines[0]);
 

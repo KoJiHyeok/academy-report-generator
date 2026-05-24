@@ -1,4 +1,4 @@
-const fs = require("fs");
+﻿const fs = require("fs");
 const path = require("path");
 const { parseCSV } = require("./csvParser");
 const { generateReports } = require("./reportGenerator");
@@ -25,6 +25,12 @@ function main() {
   const templateContent = fs.readFileSync(templatePath, "utf-8");
 
   const students = parseCSV(csvContent);
+
+  if (students.length === 0) {
+    console.log("No student rows found.");
+    return;
+  }
+
   const reports = generateReports(templateContent, students);
 
   if (!fs.existsSync(outputDir)) {
